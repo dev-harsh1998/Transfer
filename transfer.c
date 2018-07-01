@@ -57,7 +57,7 @@ x = can_run_command(curl);
 if (x){
 /* Argument check */
 if (argc < 2){
-printf ("ERROR: This binary expects atleast and only one command line argument");
+printf ("ERROR: This binary expects atleast and only one command line argument\n");
 /* bail out */
 return -1;
 }
