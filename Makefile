@@ -5,6 +5,7 @@ transfer.o: transfer.c
 
 transfer: transfer.o
 	gcc transfer.o -o transfer
+	-rm -f transfer.o
 
 clean:
 	-rm -f transfer.o
