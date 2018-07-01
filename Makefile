@@ -10,3 +10,9 @@ transfer: transfer.o
 clean:
 	-rm -f transfer.o
 	-rm -f transfer
+
+install:
+	mv transfer /usr/bin/
+	echo "Now you can use transfer binary with command line"
+	echo "Example"
+	echo "transfer myfile.txt"
