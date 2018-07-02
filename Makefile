@@ -9,11 +9,12 @@ CFLAGS="-DGET_FILE_SIZE"
 
 CC ?= gcc
 CLANG_FORMAT ?= clang-format
+OPT_LEVEL ?= -O2
 
 default: transfer
 
 transfer.o: transfer.c
-	$(CC) $(CFLAGS) -c transfer.c -o transfer.o
+	$(CC) $(CFLAGS) $(OPT_LEVEL) -c transfer.c -o transfer.o
 
 transfer: transfer.o
 	$(CC) $(CFLAGS) transfer.o -o transfer
