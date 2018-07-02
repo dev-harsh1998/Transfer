@@ -9,11 +9,12 @@ CFLAGS="-DGET_FILE_SIZE"
 
 CC ?= gcc
 CLANG_FORMAT ?= clang-format
+OPT_LEVEL ?= -O2
 
 default: transfer
 
 transfer.o: transfer.c
-	$(CC) $(CFLAGS) -c transfer.c -o transfer.o
+	$(CC) $(CFLAGS) $(OPT_LEVEL) -c transfer.c -o transfer.o
 
 transfer: transfer.o
 	$(CC) $(CFLAGS) transfer.o -o transfer
@@ -24,11 +25,10 @@ clean:
 	-rm -f transfer
 
 clang-format:
-	$(CLANG_FORMAT) -style='{IndentWidth: 4}' transfer.c > formatted.c
-	-mv formatted.c transfer.c
+	@$(CLANG_FORMAT) -style='{IndentWidth: 4}' transfer.c > formatted.c
+	@-mv formatted.c transfer.c
 
-install:
-	mv transfer /usr/bin/
-	echo "Now you can use transfer binary with command line"
-	echo "Example"
-	echo "transfer myfile.txt"
+install: transfer
+	sudo mv transfer /usr/local/bin/
+	@echo "\033[01;33mNow you can use transfer binary with command line"
+	@echo "Example: transfer myfile.txt\033[0m"
