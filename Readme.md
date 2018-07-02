@@ -1,5 +1,5 @@
 # Transfer
-Transfer is an command line tool which you can you to upload your file to the free online file sharing client [transfer.sh](https://transfer.sh/) straight from you terminal. Bored from writing curl syntax?? That's what transfer do for you just simply use transfer upload your files and get links as easy as that :D .
+Transfer is an command line tool with which you can upload your file to the free online file sharing client [transfer.sh](https://transfer.sh/) straight from you terminal. Bored from writing curl syntax?? That's what transfer do for you just simply use transfer upload your files and get links as easy as that :D .
 
 ## How to use?
 As promised easy, follow the below syntax to use transfer once the file is uploaded the link will pop up in your bash shell itself.
