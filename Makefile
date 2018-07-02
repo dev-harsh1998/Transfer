@@ -27,8 +27,7 @@ clang-format:
 	$(CLANG_FORMAT) -style='{IndentWidth: 4}' transfer.c > formatted.c
 	-mv formatted.c transfer.c
 
-install:
-	mv transfer /usr/bin/
-	echo "Now you can use transfer binary with command line"
-	echo "Example"
-	echo "transfer myfile.txt"
+install: transfer
+	sudo mv transfer /usr/bin/
+	echo "\033[01;33mNow you can use transfer binary with command line"
+	echo "Example: transfer myfile.txt\033[0m"
