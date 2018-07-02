@@ -8,6 +8,7 @@
 CFLAGS="-DGET_FILE_SIZE"
 
 CC ?= gcc
+CLANG_FORMAT ?= clang-format
 
 default: transfer
 
@@ -21,6 +22,10 @@ transfer: transfer.o
 clean:
 	-rm -f transfer.o
 	-rm -f transfer
+
+clang-format:
+	$(CLANG_FORMAT) -style='{IndentWidth: 4}' transfer.c > formatted.c
+	-mv formatted.c transfer.c
 
 install:
 	mv transfer /usr/bin/
