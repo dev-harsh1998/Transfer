@@ -83,6 +83,7 @@ int main(int argc, char *argv[])
         char cmdbuf[256];
         sprintf(cmdbuf, "curl -T %s %s", argv[1], "https://transfer.sh");
         system(cmdbuf);
+        printf("\n");
         return 0;
     }
     else
