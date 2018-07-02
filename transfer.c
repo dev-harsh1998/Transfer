@@ -80,7 +80,7 @@ int main(int argc, char *argv[])
     if (x)
     {
         /* Argument check */
-        if (argc < 2)
+        if (argc != 2) 
         {
             printf("ERROR: This binary expects atleast and only one command line argument\n");
             /* bail out */
