@@ -101,7 +101,7 @@ int main(int argc, char *argv[]) {
     } else {
         printf("Either curl binary is not installed or is corrupt somehow, "
                "This binary is based on curl and can't run without it\n");
-        printf("Install curl by running 'sudo apt install curl' \n");
+        printf("Install curl from source or with the package manager of your choice \n");
         printf("ERROR\n");
         return -1;
     }
