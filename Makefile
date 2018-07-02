@@ -7,13 +7,15 @@
 # Issue 1 file size
 CFLAGS="-DGET_FILE_SIZE"
 
+CC ?= gcc
+
 default: transfer
 
 transfer.o: transfer.c
-	gcc $(CFLAGS) -c transfer.c -o transfer.o
+	$(CC) $(CFLAGS) -c transfer.c -o transfer.o
 
 transfer: transfer.o
-	gcc $(CFLAGS) transfer.o -o transfer
+	$(CC) $(CFLAGS) transfer.o -o transfer
 	-rm -f transfer.o
 
 clean:
