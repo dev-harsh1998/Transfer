@@ -10,6 +10,12 @@
 #include <unistd.h>
 #include <string.h>
 
+#ifdef GET_FILE_SIZE
+/* ISSUE 1 File size */
+#include <sys/types.h>
+#include <sys/stat.h>
+#endif
+
 /* Implementation based on popen documentation */
 bool can_run_command(const char *cmd)
 {
@@ -80,6 +86,17 @@ int main(int argc, char *argv[])
             /* bail out */
             return -1;
         }
+
+#ifdef GET_FILE_SIZE
+        /* Issue 1 File size */
+        struct stat st;
+        long double sizeMB;
+        stat(argv[1], &st);
+        // convert bytes to mb (devide by 1024*1024)
+        float mb = st.st_size/1048576;
+        printf("The size of the file going to be uploaded is near to %.2f megabytes\n", mb);
+#endif
+
         char cmdbuf[256];
         sprintf(cmdbuf, "curl -T %s %s", argv[1], "https://transfer.sh");
         system(cmdbuf);

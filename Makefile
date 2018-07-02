@@ -4,13 +4,16 @@
 # Copyright (C) 2018, Harshit Jain
 #
 
+# Issue 1 file size
+CFLAGS="-DGET_FILE_SIZE"
+
 default: transfer
 
 transfer.o: transfer.c
-	gcc -c transfer.c -o transfer.o
+	gcc $(CFLAGS) -c transfer.c -o transfer.o
 
 transfer: transfer.o
-	gcc transfer.o -o transfer
+	gcc $(CFLAGS) transfer.o -o transfer
 	-rm -f transfer.o
 
 clean:
