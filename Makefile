@@ -29,6 +29,6 @@ clang-format:
 	@-mv formatted.c transfer.c
 
 install: transfer
-	sudo mv transfer /usr/bin/
+	sudo mv transfer /usr/local/bin/
 	@echo "\033[01;33mNow you can use transfer binary with command line"
 	@echo "Example: transfer myfile.txt\033[0m"
