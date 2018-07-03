@@ -89,13 +89,19 @@ int main(int argc, char *argv[]) {
             float mb = st.st_size / 1048576;
             printf("The size of the file going to be uploaded is near to %.2f "
                    "megabytes\n",
-                   mb);
+                   mb); 
         }
 #endif
 
         char cmdbuf[256];
         int ret;
+
+#ifdef PROGRESS_BAR
+        sprintf(cmdbuf, "curl --progress-bar -T %s %s | tee /dev/null", argv[1], "https://transfer.sh");
+#else
         sprintf(cmdbuf, "curl -T %s %s", argv[1], "https://transfer.sh");
+#endif
+
         ret = system(cmdbuf);
         printf("\n");
         return ret;
