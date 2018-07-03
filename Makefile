@@ -5,7 +5,7 @@
 #
 
 # Issue 1 file size
-CFLAGS="-DGET_FILE_SIZE"
+CFLAGS="-DGET_FILE_SIZE -Wall"
 
 CC ?= gcc
 CLANG_FORMAT ?= clang-format

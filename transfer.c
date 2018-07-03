@@ -82,26 +82,29 @@ int main(int argc, char *argv[]) {
         }
 
 #ifdef GET_FILE_SIZE
-        /* Issue 1 File size */
-        struct stat st;
-        long double sizeMB;
-        stat(argv[1], &st);
-        // convert bytes to mb (devide by 1024*1024)
-        float mb = st.st_size / 1048576;
-        printf("The size of the file going to be uploaded is near to %.2f "
-               "megabytes\n",
-               mb);
+        if (getenv("TRANSFER_DISABLE_FILESIZE") == NULL) {
+            struct stat st;
+            long double sizeMB;
+            stat(argv[1], &st);
+            // convert bytes to mb (devide by 1024*1024)
+            float mb = st.st_size / 1048576;
+            printf("The size of the file going to be uploaded is near to %.2f "
+                   "megabytes\n",
+                   mb);
+        }
 #endif
 
         char cmdbuf[256];
+        int ret;
         sprintf(cmdbuf, "curl -T %s %s", argv[1], "https://transfer.sh");
-        system(cmdbuf);
+        ret = system(cmdbuf);
         printf("\n");
-        return 0;
+        return ret;
     } else {
         printf("Either curl binary is not installed or is corrupt somehow, "
                "This binary is based on curl and can't run without it\n");
-        printf("Install curl from source or with the package manager of your choice \n");
+        printf("Install curl from source or with the package manager of your "
+               "choice \n");
         printf("ERROR\n");
         return -1;
     }
