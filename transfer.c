@@ -82,15 +82,16 @@ int main(int argc, char *argv[]) {
         }
 
 #ifdef GET_FILE_SIZE
-        /* Issue 1 File size */
-        struct stat st;
-        long double sizeMB;
-        stat(argv[1], &st);
-        // convert bytes to mb (devide by 1024*1024)
-        float mb = st.st_size / 1048576;
-        printf("The size of the file going to be uploaded is near to %.2f "
-               "megabytes\n",
-               mb);
+        if (getenv("TRANSFER_DISABLE_FILESIZE") == NULL) {
+            struct stat st;
+            long double sizeMB;
+            stat(argv[1], &st);
+            // convert bytes to mb (devide by 1024*1024)
+            float mb = st.st_size / 1048576;
+            printf("The size of the file going to be uploaded is near to %.2f "
+                   "megabytes\n",
+                   mb);
+        }
 #endif
 
         char cmdbuf[256];
