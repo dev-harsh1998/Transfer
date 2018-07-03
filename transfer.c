@@ -94,14 +94,16 @@ int main(int argc, char *argv[]) {
 #endif
 
         char cmdbuf[256];
+        int ret;
         sprintf(cmdbuf, "curl -T %s %s", argv[1], "https://transfer.sh");
-        system(cmdbuf);
+        ret = system(cmdbuf);
         printf("\n");
-        return 0;
+        return ret;
     } else {
         printf("Either curl binary is not installed or is corrupt somehow, "
                "This binary is based on curl and can't run without it\n");
-        printf("Install curl from source or with the package manager of your choice \n");
+        printf("Install curl from source or with the package manager of your "
+               "choice \n");
         printf("ERROR\n");
         return -1;
     }
