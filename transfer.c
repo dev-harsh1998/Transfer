@@ -17,7 +17,7 @@
 #endif
 
 /* Implementation based on popen documentation */
-bool can_run_command(const char *cmd) {
+static bool can_run_command(const char *cmd) {
     if (strchr(cmd, '/')) {
         // if cmd includes a slash, no path search must be performed,
         // go straight to checking if it's executable
@@ -68,8 +68,8 @@ bool can_run_command(const char *cmd) {
 
 int main(int argc, char *argv[]) {
     /* Linux curl check */
-    char curl[5] = "curl";
-    bool x;
+    const char curl[5] = "curl";
+    static bool x;
     x = can_run_command(curl);
     /* Only run the uploader when curl binary is found & is executable */
     if (x) {
@@ -83,18 +83,18 @@ int main(int argc, char *argv[]) {
 
 #ifdef GET_FILE_SIZE
         if (getenv("TRANSFER_DISABLE_FILESIZE") == NULL) {
-            struct stat st;
+            static struct stat st;
             stat(argv[1], &st);
             // convert bytes to mb (devide by 1024*1024)
-            float mb = st.st_size / 1048576;
+            const float mb = st.st_size / 1048576;
             printf("The size of the file going to be uploaded is near to %.2f "
                    "megabytes\n",
-                   mb); 
+                   mb);
         }
 #endif
 
-        char cmdbuf[256];
-        int ret;
+        static char cmdbuf[256];
+        static int ret;
 
 #ifdef PROGRESS_BAR
         sprintf(cmdbuf, "curl --progress-bar -T %s %s | tee /dev/null", argv[1], "https://transfer.sh");
