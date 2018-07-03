@@ -20,6 +20,14 @@ You can simply install transfer by following these instructions make sure you ha
 
 BOOM! Easy right? There you are done you have successfully built and installed transfer on your machine.
 
+## Supported Platforms
+> **Linux x86**
+> **Linux x86_64**
+> **macOS**
+
+## Build Status
+[ ![Codeship Status for dev-harsh1998/Transfer](https://app.codeship.com/projects/6cfba370-60d1-0136-95b6-3296b091a39e/status?branch=master)](https://app.codeship.com/projects/296378)
+
 ## Issue or feature request?
 
 Please write about issues and feature request [here](https://github.com/dev-harsh1998/Transfer/issues).
