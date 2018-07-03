@@ -84,7 +84,6 @@ int main(int argc, char *argv[]) {
 #ifdef GET_FILE_SIZE
         if (getenv("TRANSFER_DISABLE_FILESIZE") == NULL) {
             struct stat st;
-            long double sizeMB;
             stat(argv[1], &st);
             // convert bytes to mb (devide by 1024*1024)
             float mb = st.st_size / 1048576;
