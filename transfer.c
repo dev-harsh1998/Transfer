@@ -86,7 +86,7 @@ int main(int argc, char *argv[]) {
 
 #ifdef UPLOAD_MULTIPLE       
         /* Argument check */
-        if (argc <= 2) {
+        if (argc <= 1) {
             printf("ERROR: This binary expects atleast one command "
                    "line argument\n");
             /* bail out */
