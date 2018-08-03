@@ -5,7 +5,7 @@
 #
 
 # Issue 1 file size
-CFLAGS="-DGET_FILE_SIZE" "-Wall" "-DPROGRESS_BAR"
+CFLAGS="-DGET_FILE_SIZE" "-Wall" "-DPROGRESS_BAR" "-DUPLOAD_MULTIPLE"
 
 CC ?= gcc
 CLANG_FORMAT ?= clang-format
