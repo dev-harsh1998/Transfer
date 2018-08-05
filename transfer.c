@@ -157,6 +157,7 @@ int main(int argc, char *argv[]) {
         }
 #else
         sprintf(cmdbuf, "curl -T %s %s", argv[1], "https://transfer.sh");
+        ret = uploader(cmdbuf);
 #endif
 #endif
         return ret;
