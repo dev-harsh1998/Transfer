@@ -1,6 +1,6 @@
-# Transfer [ ![Codeship Status for dev-harsh1998/Transfer](https://app.codeship.com/projects/6cfba370-60d1-0136-95b6-3296b091a39e/status?branch=master)](https://app.codeship.com/projects/296378)
+# Transfer [![Codacy Badge](https://api.codacy.com/project/badge/Grade/edcd58027a3e412d90ce3cd98917d547)](https://app.codacy.com/app/dev-harsh1998/Transfer?utm_source=github.com&utm_medium=referral&utm_content=dev-harsh1998/Transfer&utm_campaign=Badge_Grade_Dashboard) [ ![Codeship Status for dev-harsh1998/Transfer](https://app.codeship.com/projects/6cfba370-60d1-0136-95b6-3296b091a39e/status?branch=master)](https://app.codeship.com/projects/296378)
 
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/edcd58027a3e412d90ce3cd98917d547)](https://app.codacy.com/app/dev-harsh1998/Transfer?utm_source=github.com&utm_medium=referral&utm_content=dev-harsh1998/Transfer&utm_campaign=Badge_Grade_Dashboard)
+
 
 Transfer is a command line utility built as a wrapper around cURL for one purpose - Uploading files to [transfer.sh](https://transfer.sh). It abstracts away all the manual cURL syntax to make usage effortless.
 This utility even has the ability to upload multiple files with a single command or you can just use it to
