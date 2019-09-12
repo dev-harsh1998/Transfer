@@ -16,9 +16,7 @@
 #include <sys/types.h>
 #endif
 
-static inline char uploader(char s[]){
-    return system(s);
-}
+static inline char uploader(char s[]) { return system(s); }
 
 /* Implementation based on popen documentation */
 static bool can_run_command(const char *cmd) {
@@ -93,15 +91,17 @@ int main(int argc, char *argv[]) {
             return -1;
         }
         if (argc > 2) {
-            printf("The no of files that are going to be uploaded are %d\n",argc - 1);
+            printf("The no of files that are going to be uploaded are %d\n",
+                   argc - 1);
         }
         printf("\n");
-        /* Display names of file (Ignore the first argument as its transfer itself) */
+        /* Display names of file (Ignore the first argument as its transfer
+         * itself) */
         for (q = 1; q < holder; q++) {
             printf("File no. %d is %s\n", q, argv[q]);
         }
         printf("\n");
-        printf ("The above listed files would be uploaded now.\n\n");
+        printf("The above listed files would be uploaded now.\n\n");
 #else
         /* Argument check */
         if (argc != 2) {
@@ -116,12 +116,14 @@ int main(int argc, char *argv[]) {
         if (getenv("TRANSFER_DISABLE_FILESIZE") == NULL) {
             static struct stat st;
 #ifdef UPLOAD_MULTIPLE
-        for (q = 1; q < holder; q++) {
-            stat(argv[q], &st);
-            const float mb = (float)st.st_size / 1048576;
-            printf("The size of the %d file going to be uploaded is near to %.2f "
-                   "megabytes\n", q, mb);
-        }
+            for (q = 1; q < holder; q++) {
+                stat(argv[q], &st);
+                const float mb = (float)st.st_size / 1048576;
+                printf("The size of the %d file going to be uploaded is near "
+                       "to %.2f "
+                       "megabytes\n",
+                       q, mb);
+            }
         }
 #else
             stat(argv[1], &st);
@@ -140,20 +142,22 @@ int main(int argc, char *argv[]) {
 #ifdef PROGRESS_BAR
 #ifdef UPLOAD_MULTIPLE
         for (q = 1; q < holder; q++) {
-        sprintf(cmdbuf, "curl --progress-bar -T %s %s | tee /dev/null", argv[q], "https://transfer.sh");
-        ret = uploader(cmdbuf);
-        printf("\n");
+            sprintf(cmdbuf, "curl --progress-bar -T %s %s | tee /dev/null",
+                    argv[q], "https://transfer.sh");
+            ret = uploader(cmdbuf);
+            printf("\n");
         }
 #else
-        sprintf(cmdbuf, "curl --progress-bar -T %s %s | tee /dev/null", argv[1], "https://transfer.sh");
+        sprintf(cmdbuf, "curl --progress-bar -T %s %s | tee /dev/null", argv[1],
+                "https://transfer.sh");
         ret = uploader(cmdbuf);
 #endif
 #else
 #ifdef UPLOAD_MULTIPLE
         for (q = 1; q < holder; q++) {
-        sprintf(cmdbuf, "curl -T %s %s", argv[q], "https://transfer.sh");
-        ret = uploader(cmdbuf);
-        printf("\n");
+            sprintf(cmdbuf, "curl -T %s %s", argv[q], "https://transfer.sh");
+            ret = uploader(cmdbuf);
+            printf("\n");
         }
 #else
         sprintf(cmdbuf, "curl -T %s %s", argv[1], "https://transfer.sh");

@@ -4,7 +4,6 @@
 # Copyright (C) 2018, Harshit Jain
 #
 
-# Issue 1 file size
 CFLAGS="-DGET_FILE_SIZE" "-Wall" "-DPROGRESS_BAR" "-DUPLOAD_MULTIPLE"
 
 CC ?= gcc
@@ -21,12 +20,12 @@ transfer: transfer.o
 	-rm -f transfer.o
 
 clean:
-	-rm -f transfer.o
-	-rm -f transfer
+	@-rm -f transfer.o transfer
+	@echo "[~] Cleaned Successfully"
 
 clang-format:
-	@$(CLANG_FORMAT) -style='{IndentWidth: 4}' transfer.c > formatted.c
-	@-mv formatted.c transfer.c
+	@$(CLANG_FORMAT) -style='{IndentWidth: 4}' -i transfer.c
+	@echo "[~] Source code formatted"
 
 install: transfer
 	sudo mv transfer /usr/local/bin/
