@@ -18,15 +18,21 @@ https://transfer.sh/ab069/myfile2.file
 ## Installation 
 You can simply install transfer by following these instructions, make sure you have `git` and `curl` installed.
 
+### Clone the repository
+```bash
+$ git clone https://github.com/dev-harsh1998/Transfer
 ```
-# Clone the repository.
-git clone https://github.com/dev-harsh1998/Transfer
-# Navigate to cloned directory.
-cd Transfer
-# Compile latest binary on your own machine!!.
-make transfer
-# Install it for direct access.
-sudo make install
+### Navigate to cloned directory
+```bash
+$ cd Transfer
+```
+### Compile latest binary on your own machine
+```bash
+$ make transfer
+```
+### Install it for direct access
+```bash
+$ sudo make install
 ```
 
 Additionally you can supply parameters to change the compiler and optimisation level, like `CC=clang OPT_LEVEL=-O3 make transfer`
